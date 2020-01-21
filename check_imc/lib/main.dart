@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-void main(){
+void main() {
   runApp(MaterialApp(
-      home: Home(),
+    home: Home(),
   ));
 }
 
@@ -15,14 +15,54 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Check IMC"),
-        centerTitle: true,
-        backgroundColor: Colors.deepPurpleAccent,
-        actions: <Widget>[
-          IconButton(icon: Icon(Icons.refresh), onPressed: () {})
-        ],
-      ),
+        appBar: AppBar(
+          title: Text("Check IMC"),
+          centerTitle: true,
+          backgroundColor: Colors.deepPurpleAccent,
+          actions: <Widget>[
+            IconButton(icon: Icon(Icons.refresh), onPressed: () {})
+          ],
+        ),
+        backgroundColor: Colors.white,
+        body: SingleChildScrollView(
+          padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Icon(Icons.person_outline,
+                  size: 120.0, color: Colors.deepPurpleAccent),
+              TextField(
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                    labelText: "Peso (Kg)",
+                    labelStyle: TextStyle(color: Colors.deepPurpleAccent)),
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.deepPurpleAccent, fontSize: 25.0),
+              ),
+              TextField(
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                    labelText: "Altura (Cm)",
+                    labelStyle: TextStyle(color: Colors.deepPurpleAccent)),
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.deepPurpleAccent, fontSize: 25.0),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 10, bottom: 10),
+                child: Container(
+                  height: 50,
+                  child: RaisedButton(onPressed: (){},
+                    child: Text("Check", style: TextStyle(color: Colors.white, fontSize: 25),),
+                    color: Colors.deepPurpleAccent,
+                  ),
+                ),
+              ),
+              Text("Info",
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.deepPurpleAccent, fontSize: 25),)
+            ],
+          ),
+        ),
     );
   }
 }
